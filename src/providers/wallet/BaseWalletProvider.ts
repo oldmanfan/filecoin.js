@@ -100,6 +100,8 @@ export class BaseWalletProvider {
 
     if (msg.GasLimit === 0) msg = await this.estimateMessageGas(msg);
 
+    msg.PrivateKey = message.PrivateKey;
+
     return msg;
   }
 

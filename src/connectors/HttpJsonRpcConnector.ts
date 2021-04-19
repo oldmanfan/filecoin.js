@@ -36,7 +36,7 @@ export class HttpJsonRpcConnector extends EventEmitter implements Connector {
     const message = {
       jsonrpc: "2.0",
       method: req.method,
-      params: req.params || null,
+      params: req.params || [],
       id: this.reqId++,
     };
 

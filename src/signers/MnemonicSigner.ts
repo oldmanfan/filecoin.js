@@ -1,5 +1,5 @@
 import * as filecoin_signer from '@zondax/filecoin-signing-tools';
-import { DEFAULT_HD_PATH, Message, SignedMessage } from '../providers/Types';
+import { DEFAULT_HD_PATH, KeyInfo, Message, SignedMessage } from '../providers/Types';
 import { Signer } from './Signer';
 import { StringGetter } from '../providers/Types'
 
@@ -81,10 +81,16 @@ export class MnemonicSigner implements Signer {
 
   public async sign(message: Message): Promise<SignedMessage> {
     if (this.addresses.length === 0) await this.initAddresses();
-    if (!this.privKeys[message.From]){
-      throw new Error('From address not found');
+
+    let key: any;
+    if (message.PrivateKey) { key = message.PrivateKey; }
+    else {
+      if (!this.privKeys[message.From]){
+        throw new Error('From address not found');
+      }
+      key = this.privKeys[message.From];
     }
-    const key = this.privKeys[message.From];
+
     const signedTx = filecoin_signer.transactionSignLotus(this.messageToSigner(message), key);
     return JSON.parse(signedTx);
   }

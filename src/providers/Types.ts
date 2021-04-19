@@ -111,6 +111,8 @@ export class Message {
   Method!: number;
 
   Params!: string;
+
+  PrivateKey?: string;
 };
 
 export class MessagePartial {
@@ -133,6 +135,8 @@ export class MessagePartial {
   Method?: number;
 
   Params?: string;
+
+  PrivateKey?: string;
 };
 
 export class HeadChange {
