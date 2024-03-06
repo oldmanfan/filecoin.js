@@ -1,6 +1,6 @@
 {
-  "name": "filecoin.js",
-  "version": "0.0.3-alpha",
+  "name": "passion-filecoin.js",
+  "version": "0.0.1",
   "description": "A JavaScript/TypeScript client library for Filecoin.io's Lotus",
   "main": "builds/dist/index.js",
   "types": "builds/dist/index.d.ts",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/filecoin-shipyard/filecoin.js"
+    "url": "https://github.com/oldmanfan/filecoin.js"
   },
   "scripts": {
     "prebuild": "rimraf builds/dist builds/dist-esm builds/dist-tests builds/examples",
